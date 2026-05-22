@@ -1,1 +1,1 @@
-# chinou-bako-release
+# AI百宝箱 发布页面
