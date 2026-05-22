@@ -1,37 +1,39 @@
 import Link from 'next/link'
 
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? ''
+const V = process.env.VERSION ?? '1.0.1'
+const DL = `https://github.com/jyoketsu/chinou-bako-release/releases/download/v${V}`
 
 const installers = [
   {
     title: 'macOS Apple Silicon',
     logo: '/logo/mac.svg',
     invertOnDark: true,
-    href: 'https://github.com/jyoketsu/electron-template/releases/download/v0.0.1/electron-template-0.0.1-arm64.dmg',
+    href: `${DL}/aigate-image-${V}-arm64.dmg`,
   },
   {
     title: 'macOS Intel',
     logo: '/logo/mac.svg',
     invertOnDark: true,
-    href: 'https://github.com/jyoketsu/electron-template/releases/download/v0.0.1/electron-template-0.0.1-x64.dmg',
+    href: `${DL}/aigate-image-${V}-x64.dmg`,
   },
   {
     title: 'Linux DEB',
     logo: '/logo/linux.svg',
     invertOnDark: false,
-    href: 'https://github.com/jyoketsu/electron-template/releases/download/v0.0.1/electron-template_0.0.1_amd64.deb',
+    href: `${DL}/aigate-image_${V}_amd64.deb`,
   },
   {
     title: 'Linux AppImage',
     logo: '/logo/linux.svg',
     invertOnDark: false,
-    href: 'https://github.com/jyoketsu/electron-template/releases/download/v0.0.1/electron-template-0.0.1.AppImage',
+    href: `${DL}/aigate-image-${V}.AppImage`,
   },
   {
     title: 'Windows',
     logo: '/logo/windows.svg',
     invertOnDark: true,
-    href: 'https://github.com/jyoketsu/electron-template/releases/download/v0.0.1/electron-template-0.0.1-setup.exe',
+    href: `${DL}/aigate-image-${V}-setup.exe`,
   },
 ]
 
@@ -43,6 +45,7 @@ export default function Home() {
         <img src={`${BASE}/logo/icon.png`} alt="" className="size-10" />
         <span>AI百宝箱</span>
       </p>
+      <p className="text-center text-sm text-muted-foreground">v{V}</p>
       <div>
         <h2 className="mb-3 text-lg font-semibold">下载安装包</h2>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
