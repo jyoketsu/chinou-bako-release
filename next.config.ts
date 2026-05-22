@@ -4,6 +4,7 @@ import createMDX from "@next/mdx";
 const nextConfig: NextConfig = {
   output: "export",
   basePath: "/chinou-bako-release",
+  env: { NEXT_PUBLIC_BASE_PATH: "/chinou-bako-release" },
   images: { unoptimized: true },
   // Configure `pageExtensions` to include markdown and MDX files
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],

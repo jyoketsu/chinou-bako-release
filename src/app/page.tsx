@@ -1,5 +1,7 @@
 import Link from 'next/link'
 
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? ''
+
 const installers = [
   {
     title: 'macOS Apple Silicon',
@@ -38,7 +40,7 @@ export default function Home() {
   return (
     <div className="space-y-4 max-w-2xl mx-auto px-4 pt-[8%]">
       <p className='w-full text-3xl font-bold flex justify-center items-center gap-2'>
-        <i className='bg-[url("/logo/icon.png")] size-10 bg-contain bg-center bg-no-repeat' />
+        <img src={`${BASE}/logo/icon.png`} alt="" className="size-10" />
         <span>AI百宝箱</span>
       </p>
       <div>
@@ -52,7 +54,7 @@ export default function Home() {
               target="_blank"
               rel="noreferrer"
             >
-              <img className={`h-8 w-8 shrink-0 ${installer.invertOnDark ? 'dark:invert' : ''}`} src={installer.logo} alt="" />
+              <img className={`h-8 w-8 shrink-0 ${installer.invertOnDark ? 'dark:invert' : ''}`} src={`${BASE}${installer.logo}`} alt="" />
               <span className="min-w-0">
                 <span className="block font-medium leading-5">{installer.title}</span>
               </span>
