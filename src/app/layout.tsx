@@ -20,12 +20,7 @@ export const metadata: Metadata = {
   description: "AI百宝箱下载",
 };
 
-type Props = {
-  children: React.ReactNode
-  params: Promise<{ locale: string }>
-}
-
-export default async function RootLayout({ children }: Props) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="zh-CN" suppressHydrationWarning>
       <body
