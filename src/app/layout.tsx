@@ -16,16 +16,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Next Template",
-  description: "Next Template: A template for Next.js projects.",
+  title: "AI百宝箱",
+  description: "AI百宝箱下载",
 };
 
 type Props = {
-  children: React.ReactNode;
-  params: Promise<{ locale: string }>;
-};
+  children: React.ReactNode
+  params: Promise<{ locale: string }>
+}
 
-export default async function RootLayout({ children, params }: Props) {
+export default async function RootLayout({ children }: Props) {
   return (
     <html lang="zh-CN" suppressHydrationWarning>
       <body
