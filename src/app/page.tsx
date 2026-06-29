@@ -11,13 +11,13 @@ const PROXY_PREFIX = 'https://v4.gh-proxy.org/'
 
 const installers = [
   {
-    title: 'macOS Apple Silicon',
+    title: 'macOS（Apple 芯片）',
     logo: '/logo/mac.svg',
     invertOnDark: true,
     href: `${DL}/aigate-image-${V}-arm64.dmg`,
   },
   {
-    title: 'macOS Intel',
+    title: 'macOS（Intel 芯片）',
     logo: '/logo/mac.svg',
     invertOnDark: true,
     href: `${DL}/aigate-image-${V}-x64.dmg`,
