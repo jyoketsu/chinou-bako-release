@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { Checkbox } from '@/components/ui/checkbox'
 
@@ -44,6 +44,46 @@ const installers = [
 
 export default function Home() {
   const [proxyEnabled, setProxyEnabled] = useState(false)
+  const wasAwayRef = useRef(false)
+
+  useEffect(() => {
+    const reloadIfReturned = () => {
+      if (wasAwayRef.current) {
+        window.location.reload()
+      }
+    }
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'hidden') {
+        wasAwayRef.current = true
+        return
+      }
+
+      reloadIfReturned()
+    }
+
+    const handlePageShow = (event: PageTransitionEvent) => {
+      if (event.persisted) {
+        window.location.reload()
+      }
+    }
+
+    const handleBlur = () => {
+      wasAwayRef.current = true
+    }
+
+    window.addEventListener('blur', handleBlur)
+    window.addEventListener('focus', reloadIfReturned)
+    window.addEventListener('pageshow', handlePageShow)
+    document.addEventListener('visibilitychange', handleVisibilityChange)
+
+    return () => {
+      window.removeEventListener('blur', handleBlur)
+      window.removeEventListener('focus', reloadIfReturned)
+      window.removeEventListener('pageshow', handlePageShow)
+      document.removeEventListener('visibilitychange', handleVisibilityChange)
+    }
+  }, [])
 
   return (
     <div className="space-y-4 max-w-2xl mx-auto px-4 pt-[8%]">
